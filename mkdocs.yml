@@ -1,0 +1,43 @@
+# https://www.mkdocs.org/user-guide/configuration/
+site_url: https://HKUST-Courses.github.io/
+site_name: HKUST Course Information
+site_description: HKUST Course Information (Unofficial)
+repo_url: https://github.com/HKUST-Courses/HKUST-Courses
+
+nav:
+  - Home: index.md
+  - Course Notes:
+    - notes/index.md
+  - Course Review:
+    - review/index.md
+  - About: about.md
+
+theme:
+  name: material
+  highlightjs: true # Enables highlighting of source code
+  features:
+    # https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/#navigation-tabs
+    - navigation.tabs
+    - navigation.tabs.sticky
+    # https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/#navigation-path
+    - navigation.path
+    # https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/#section-index-pages
+    # documents can be directly attached to sections
+    - navigation.indexes
+    # https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/#back-to-top-button
+    - navigation.top
+
+    
+plugins:
+  - search
+
+extra_javascript:
+  - js/katex.js
+
+markdown_extensions:
+  # Table of contents on the right
+  - toc:
+      permalink: true
+      # separator: "-" # (default)
+      toc_depth: 4
+    
