@@ -4,18 +4,13 @@ site_name: HKUST Course Information
 site_description: HKUST Course Information (Unofficial)
 repo_url: https://github.com/HKUST-Courses/HKUST-Courses.github.io
 
-nav:
-  - Home: index.md
-  - Course Notes:
-    - notes/index.md
-  - Course Review:
-    - review/index.md
-  - CurriculumMap:
-    - map/index.md
-  - About: about.md
-
 theme:
   name: material
+  palette:
+    scheme: default
+    primary: indigo
+    accent: amber
+  language: en
   highlightjs: true # Enables highlighting of source code
   features:
     # https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/#navigation-tabs
@@ -32,14 +27,42 @@ theme:
     
 plugins:
   - search
-
+  - awesome-pages
+  
+# https://squidfunk.github.io/mkdocs-material/customization/#additional-javascript
 extra_javascript:
-  - js/katex.js
+  # Math support https://squidfunk.github.io/mkdocs-material/reference/mathjax/#configuration
+  - js/mathjax.js
+  # https://www.mathjax.org/#gettingstarted
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+extra_css:
+  
 
 markdown_extensions:
   # Table of contents on the right
   - toc:
       permalink: true
       # separator: "-" # (default)
-      toc_depth: 4
-    
+  # https://facelessuser.github.io/pymdown-extensions/extensions/mark/
+  # surrond text with == to mark it
+  - pymdownx.mark
+  # https://facelessuser.github.io/pymdown-extensions/extensions/emoji/
+  - pymdownx.emoji
+  # https://squidfunk.github.io/mkdocs-material/reference/mathjax/
+  # https://facelessuser.github.io/pymdown-extensions/extensions/arithmatex/
+  - pymdownx.arithmatex:
+      generic: true
+
+nav:
+  - Home: index.md
+  - Course Notes:
+    - notes/comp.md
+    - notes/econ.md
+  - Course Review:
+    - review/index.md
+  - CurriculumMap:
+    - map/index.md
+  - Exchange:
+    - ex/index.md
