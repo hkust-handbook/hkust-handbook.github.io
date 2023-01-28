@@ -2,7 +2,7 @@
 site_url: https://HKUST-Courses.github.io/
 site_name: HKUST Course Information
 site_description: HKUST Course Information (Unofficial)
-repo_url: https://github.com/HKUST-Courses/HKUST-Courses
+repo_url: https://github.com/HKUST-Courses/HKUST-Courses.github.io
 
 nav:
   - Home: index.md
@@ -10,6 +10,8 @@ nav:
     - notes/index.md
   - Course Review:
     - review/index.md
+  - CurriculumMap:
+    - map/index.md
   - About: about.md
 
 theme:
