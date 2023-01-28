@@ -27,7 +27,6 @@ theme:
     
 plugins:
   - search
-  - awesome-pages
   
 # https://squidfunk.github.io/mkdocs-material/customization/#additional-javascript
 extra_javascript:
