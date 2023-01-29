@@ -1,0 +1,9 @@
+mkdocs
+mkdocs-material
+mkdocs-material-extensions
+pymdown-extensions
+tabulate
+pandas
+tqdm
+bs4
+lxml

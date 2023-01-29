@@ -1,0 +1,59 @@
+# Home
+
+## Contributing Notes
+
+1. Edit `raw/notes.json` though [this link](https://github.com/HKUST-Courses/HKUST-Courses.github.io/edit/master/raw/notes.json)
+2. Add new records to `raw/notes.json`:
+    - A single record represents a link to some set of notes. One course may have
+      multiple sets of notes.
+    - `raw/notes.json` looks like
+```json
+[
+    { 
+        record 1
+    },
+    ...
+    { 
+        record n
+    }
+]
+```
+    Note the comma after each record except the last one. You can insert the new
+      records into any position.
+    - The record format should exactly match the template below:
+```json
+{
+    "code": "comp1021",
+    "title": "Text displayed on the link",
+    "link": "https://...",
+    "offering": "22-23Fall",
+    "format": "PDF", 
+    "author": "Your name, optional.",
+    "remark": "Optional"
+}
+```
+      Note: All field values must be surronded by a double quotation mark.
+3. After finishing your editting, scroll to the bottom, **select "Create a new
+   branch ... start a pull request ..."**, fill in the blank above the brief of
+   your editting (e.g., which courses you add notes for), and finally choose "Propose changes".
+
+To preview locally:
+
+1. Clone this repo.
+```shell
+git clone git@github.com:HKUST-Courses/HKUST-Courses.github.io.git
+cd HKUST-Courses.github.io.
+```
+2. Install required Python packages.
+```shell
+pip install -r requirements-dev.txt
+```
+3. Run `parser.py`
+   ```shell
+   python parser.py
+   ```
+4. Run mkdocs server
+   ```shell
+   mkdocs serve
+   ```
+4. Preview the website at localhost:8000

@@ -23,6 +23,8 @@ theme:
     - navigation.indexes
     # https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/#back-to-top-button
     - navigation.top
+    # https://squidfunk.github.io/mkdocs-material/reference/code-blocks/#code-copy-button
+    - content.code.copy
 
     
 plugins:
@@ -40,6 +42,8 @@ extra_css:
   
 
 markdown_extensions:
+  - def_list
+  - attr_list
   # Table of contents on the right
   - toc:
       permalink: true
@@ -53,3 +57,10 @@ markdown_extensions:
   # https://facelessuser.github.io/pymdown-extensions/extensions/arithmatex/
   - pymdownx.arithmatex:
       generic: true
+  # https://squidfunk.github.io/mkdocs-material/reference/code-blocks/#configuration
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  # Support nesting fence code blocks under lists
+  - pymdownx.superfences

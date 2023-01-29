@@ -40,6 +40,8 @@ extra_css:
   
 
 markdown_extensions:
+  - def_list
+  - attr_list
   # Table of contents on the right
   - toc:
       permalink: true
@@ -53,6 +55,8 @@ markdown_extensions:
   # https://facelessuser.github.io/pymdown-extensions/extensions/arithmatex/
   - pymdownx.arithmatex:
       generic: true
+  # Support nesting fence code blocks under lists
+  - pymdownx.superfences
 nav:
 - Home: index.md
 - Course Notes:
