@@ -18,6 +18,13 @@ jobs:
         with:
           key: ${{ github.ref }}
           path: .cache
-      - run: pip install mkdocs-material 
-      - run: python parser.py
-      - run: mkdocs gh-deploy --force
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Parsing
+        run: python parser.py
+      - name: Auto updating changes
+        run: |
+          git commit -am "Auto updating changes"
+          git push
+      - name: Deploying
+        run: mkdocs gh-deploy --force
