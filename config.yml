@@ -53,14 +53,3 @@ markdown_extensions:
   # https://facelessuser.github.io/pymdown-extensions/extensions/arithmatex/
   - pymdownx.arithmatex:
       generic: true
-nav:
-- Home: index.md
-- Course Notes:
-  - notes/comp.md
-  - notes/econ.md
-- Course Review:
-  - review/index.md
-- CurriculumMap:
-  - map/index.md
-- Exchange:
-  - ex/index.md
