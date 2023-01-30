@@ -1,0 +1,78 @@
+# https://www.mkdocs.org/user-guide/configuration/
+site_url: https://HKUST-Courses.github.io/
+site_name: HKUST Course Information
+site_description: HKUST Course Information (Unofficial)
+repo_url: https://github.com/HKUST-Courses/HKUST-Courses.github.io
+
+theme:
+  name: material
+  palette:
+    scheme: default
+    primary: indigo
+    accent: amber
+  language: en
+  highlightjs: true # Enables highlighting of source code
+  features:
+    # https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/#navigation-tabs
+    - navigation.tabs
+    - navigation.tabs.sticky
+    # https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/#navigation-path
+    - navigation.path
+    # https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/#section-index-pages
+    # documents can be directly attached to sections
+    - navigation.indexes
+    # https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/#back-to-top-button
+    - navigation.top
+    # https://squidfunk.github.io/mkdocs-material/reference/code-blocks/#code-copy-button
+    - content.code.copy
+
+    
+plugins:
+  - search
+  
+# https://squidfunk.github.io/mkdocs-material/customization/#additional-javascript
+extra_javascript:
+  # Math support https://squidfunk.github.io/mkdocs-material/reference/mathjax/#configuration
+  - js/mathjax.js
+  # https://www.mathjax.org/#gettingstarted
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+extra_css:
+  
+
+markdown_extensions:
+  - def_list
+  - attr_list
+  # Table of contents on the right
+  - toc:
+      permalink: true
+      # separator: "-" # (default)
+  # https://facelessuser.github.io/pymdown-extensions/extensions/mark/
+  # surrond text with == to mark it
+  - pymdownx.mark
+  # https://facelessuser.github.io/pymdown-extensions/extensions/emoji/
+  - pymdownx.emoji
+  # https://squidfunk.github.io/mkdocs-material/reference/mathjax/
+  # https://facelessuser.github.io/pymdown-extensions/extensions/arithmatex/
+  - pymdownx.arithmatex:
+      generic: true
+  # https://squidfunk.github.io/mkdocs-material/reference/code-blocks/#configuration
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  # Support nesting fence code blocks under lists
+  - pymdownx.superfences
+nav:
+- Home: index.md
+- Course Notes:
+  - notes/comp.md
+  - notes/econ.md
+  - notes/math.md
+- Course Review:
+  - review/index.md
+- CurriculumMap:
+  - map/index.md
+- Exchange:
+  - ex/index.md
