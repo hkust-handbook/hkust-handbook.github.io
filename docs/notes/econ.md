@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # ECON -  Economics
+=======
+# ECON
+>>>>>>> refs/remotes/origin/master
 
 ## ECON2103
 

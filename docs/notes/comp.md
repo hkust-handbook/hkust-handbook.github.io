@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # COMP -  Computer Science and Engineering
+=======
+# COMP
+>>>>>>> refs/remotes/origin/master
 
 ## COMP4471
 
