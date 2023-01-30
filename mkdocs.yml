@@ -66,12 +66,10 @@ markdown_extensions:
   - pymdownx.superfences
 nav:
 - Home: index.md
-- Course Notes:
+- Courses:
   - notes/comp.md
   - notes/econ.md
   - notes/math.md
-- Course Review:
-  - review/index.md
 - CurriculumMap:
   - map/index.md
 - Exchange:
