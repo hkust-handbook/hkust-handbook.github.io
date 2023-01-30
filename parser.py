@@ -48,9 +48,9 @@ def parse_notes():
     nav_name = 'nav.yml'
     with open(nav_name, 'r') as f:
         navs = yaml.safe_load(f)
-        for item in navs['nav']:
-            if list(item.keys()) == ['Course Notes']:
-                item['Course Notes'] = ['notes/' + _ + '.md' for _ in subject_list]
+        navs_notes = next(filter(lambda x:list(x.keys()) == ['Course Notes'], navs['nav']))
+        navs_notes['Course Notes'].extend(['notes/' + _ + '.md' for _ in subject_list])
+        navs_notes['Course Notes'] = sorted(set(navs_notes['Course Notes']))
     with open(nav_name, 'w') as f:
         yaml.dump(navs, f)
 
@@ -63,16 +63,24 @@ def parse_notes():
         with open(nav_name, 'r') as fi:
             fo.write(fi.read())
 
+    subjects_csv_name = 'raw/subjects.csv'
+    subjects_csv = pd.read_csv(subjects_csv_name, header='infer', index_col='abbr')
+    
     # Create <subject>.md files
     for subject in subject_list:
         dest_name = f'docs/notes/{subject}.md'
         os.makedirs(os.path.dirname(dest_name), exist_ok=True)
-        with open(dest_name, 'w') as f:
-            f.write(f'# {subject.upper()}\n\n')
+        with open(dest_name, 'w') as fo:
+            subject_entry = subjects_csv.loc[subject.upper()]
+            fo.write(f'# {subject.upper()} - {subject_entry[("name")]}\n\n')
+            rem_name = f'raw/{subject}-rem.md'
+            if os.path.exists(rem_name):
+                with open(rem_name, 'r') as fi:
+                    fo.write(fi.read())
 
     # Load courses.csv for course information
-    csv_name = 'raw/courses.csv'
-    courses_info = pd.read_csv(csv_name, header='infer', index_col='Course Code')
+    courses_csv_name = 'raw/courses.csv'
+    courses_info = pd.read_csv(courses_csv_name, header='infer', index_col='Course Code')
     
     # Fill in <subject>.md files
     for code in code_list:

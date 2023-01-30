@@ -16,6 +16,7 @@ import csv
 import urllib.request
 from bs4 import BeautifulSoup
 from tqdm import tqdm
+import pandas as pd
 
 #for .xls file you should use
 
@@ -62,18 +63,22 @@ def get_content(content):
     content = content.strip('\xa0')
     return content
 
-def get_subject_urls(soup):
+def get_subject_list(soup):
     subject_prefix = [ chr(ord('A') + i) for i in range(26)]
-    subject_urls = []
+    subject_list = []
     for prefix in tqdm(subject_prefix, desc="Crawling Subjects"):
-        found_prefix = soup.find_all("li", {"class" : "subject subject-prefix-" + prefix})
-        for li in found_prefix:
-            subject_urls.append("https://prog-crs.hkust.edu.hk" + str(li.a.get("href")))
-    return subject_urls
+        subject_this_prefix = soup.find_all("li", {"class" : "subject subject-prefix-" + prefix})
+        for subject in subject_this_prefix:
+            abbr = subject.a.get("title")[:4]
+            name = subject.a.get("title")[6:]
+            url = "https://prog-crs.hkust.edu.hk" + str(subject.a.get("href"))
+            subject_list.append({'abbr': abbr, 'name': name, 'url': url})
+    return subject_list
 
-def get_courses(subject_urls):
+def get_courses(subject_list):
     courses = []
-    for url in tqdm(subject_urls, desc="Crawling Courses"):
+    for subject in tqdm(subject_list, desc="Crawling Courses"):
+        url = subject['url']
         #use soup to find "li" Label and specified classes
         html = urllib.request.urlopen(url).read()
         soup = BeautifulSoup(html, "lxml")
@@ -171,6 +176,12 @@ def process_courses(courses):
 
     return all_row
 
+def output_subjects_csv(path, subject_list_ug, subject_list_pg):
+    df_ug = pd.DataFrame.from_records(subject_list_ug).drop(['url'], axis='columns')
+    df_pg = pd.DataFrame.from_records(subject_list_pg).drop(['url'], axis='columns')
+    df = pd.concat((df_ug, df_pg)).drop_duplicates('abbr')
+    df.to_csv(path, header=True, index=False, index_label='abbr')
+
 def output_csv(path, all_row):
     all_row_length = len(all_row)
     #supporting Chinese by 'utf-8-sig'
@@ -197,14 +208,23 @@ def main():
     '''
 
     print("Loading HTML")
-    base_url = 'https://prog-crs.ust.hk/ugcourse/'
-    html = urllib.request.urlopen(base_url).read()
-    soup = BeautifulSoup(html, "lxml")
 
-    subject_urls = get_subject_urls(soup)
+    base_url_ug = 'https://prog-crs.ust.hk/ugcourse/'
+    base_url_pg = 'https://prog-crs.ust.hk/pgcourse/'
+    
+    html_ug = urllib.request.urlopen(base_url_ug).read()
+    soup_ug = BeautifulSoup(html_ug, "lxml")
+    html_pg = urllib.request.urlopen(base_url_pg).read()
+    soup_pg = BeautifulSoup(html_pg, "lxml")
 
-    courses = get_courses(subject_urls)
+    subject_list_ug = get_subject_list(soup_ug)
+    subject_list_pg = get_subject_list(soup_pg)
+    output_subjects_csv('subjects.csv', subject_list_ug, subject_list_pg)
 
+    courses_ug = get_courses(subject_list_ug)
+    courses_pg = get_courses(subject_list_pg)
+    courses = courses_ug + courses_pg
+    print(type(courses))
     all_row = process_courses(courses)
 
     output_csv("courses.csv", all_row)
