@@ -1,6 +1,8 @@
 # Home
 
-## Contributing Notes
+## Contributing
+
+### Notes
 
 1. Edit `raw/notes.json` though [this link](https://github.com/HKUST-Courses/HKUST-Courses.github.io/edit/master/raw/notes.json)
 2. Add new records to `raw/notes.json`:
@@ -37,7 +39,13 @@
    branch ... start a pull request ..."**, fill in the blank above the brief of
    your editting (e.g., which courses you add notes for), and finally choose "Propose changes".
 
-To preview locally:
+### Review/Remark
+
+Review of some course: edit `raw/codes/<course-code>-rem.md`.
+
+Review of some subject: edit `raw/subjects/<subjetc>-rem.md`.
+
+### To preview locally:
 
 1. Clone this repo.
 ```shell
