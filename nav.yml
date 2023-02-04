@@ -1,9 +1,9 @@
 nav:
 - Home: index.md
 - Courses:
-  - notes/index.md
-  - notes/comp.md
   - notes/econ.md
+  - notes/comp.md
+  - notes/index.md
 - CurriculumMap:
   - map/index.md
 - Exchange and Credit Transfer:
