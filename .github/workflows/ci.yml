@@ -20,9 +20,9 @@ jobs:
           path: .cache
       - name: Install dependencies
         run: pip install -r requirements.txt
-      - name: Parsing
-        run: python parser.py
-      - name: Commit files
+      - name: Deploying
+        run: mkdocs gh-deploy --force
+      - name: Commit pre-build changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -32,5 +32,3 @@ jobs:
         uses: ad-m/github-push-action@master
         with:
           force: true
-      - name: Deploying
-        run: mkdocs gh-deploy --force
