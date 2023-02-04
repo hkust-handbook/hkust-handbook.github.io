@@ -1,13 +1,12 @@
 nav:
 - Home: index.md
 - Courses:
+  - notes/index.md
   - notes/comp.md
   - notes/econ.md
-  - notes/math.md
 - CurriculumMap:
   - map/index.md
 - Exchange and Credit Transfer:
-  - ex/epfl.md
   - ex/index.md
 - Research:
   - res/urop.md

@@ -50,7 +50,9 @@ For other advice, add/edit files in `docs/`:
 - Exchange experience: add/edit `docs/ex/<school-abbr>.md`
 - Research: add/edit `docs/res/<title>.md`
 
-### To preview locally:
+No need to manually update `mkdocs.yml`.
+
+### To preview locally
 
 1. Clone this repo.
 ```shell
@@ -61,11 +63,7 @@ cd HKUST-Courses.github.io.
 ```shell
 pip install -r requirements-dev.txt
 ```
-3. Run `parser.py`
-   ```shell
-   python parser.py
-   ```
-4. Run mkdocs server
+3. Run mkdocs server
    ```shell
    mkdocs serve
    ```

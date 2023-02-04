@@ -56,12 +56,13 @@ def parse_notes():
 
     # Update nav
     nav_name = 'nav.yml'
+    course_index_name = 'notes/index.md'
     with open(nav_name, 'r') as f:
         navs = yaml.safe_load(f)
     navs_notes = next(filter(lambda x:list(x.keys()) == ['Courses'], navs['nav']))
     navs_notes['Courses'].extend(['notes/' + _ + '.md' for _ in subject_list])
-    navs_notes['Courses'] = sorted(set(navs_notes['Courses']))
-    subject_list = [_.removeprefix('notes/').removesuffix('.md') for _ in navs_notes['Courses']]
+    navs_notes['Courses'].remove(course_index_name)
+    navs_notes['Courses'] = [course_index_name] + sorted(set(navs_notes['Courses']))
     with open(nav_name, 'w') as f:
         yaml.dump(navs, f)
 
@@ -70,7 +71,7 @@ def parse_notes():
 
     subjects_csv_name = 'raw/subjects.csv'
     subjects_csv = pd.read_csv(subjects_csv_name, header='infer', index_col='abbr')
-    
+
     # Create <subject>.md files
     for subject in subject_list:
         dest_name = f'docs/notes/{subject}.md'
@@ -142,7 +143,11 @@ def parse_others():
 
     # Update mkdocs
     update_mkdocs()
-                    
-if __name__=='__main__':
+
+def on_pre_build(*args, **kwargs):
+    print('Running hook: parser.py')
     parse_notes()
     parse_others()
+    
+if __name__=='__main__':
+    on_pre_build()
