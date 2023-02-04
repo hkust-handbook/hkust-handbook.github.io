@@ -144,7 +144,7 @@ def parse_others():
     # Update mkdocs
     update_mkdocs()
 
-def on_pre_build(*args, **kwargs):
+def on_startup(*args, **kwargs):
     print('Running hook: parser.py')
     parse_notes()
     parse_others()
