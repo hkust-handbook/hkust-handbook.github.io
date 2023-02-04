@@ -5,6 +5,16 @@ import json
 import yaml
 import pandas as pd
 
+def update_mkdocs():
+    mkdocs_name = 'mkdocs.yml'
+    config_name = 'config.yml'
+    nav_name = 'nav.yml'
+    with open(mkdocs_name, 'w') as fo:
+        with open(config_name, 'r') as fi:
+            fo.write(fi.read())
+        with open(nav_name, 'r') as fi:
+            fo.write(fi.read())
+
 def parse_notes():
     """
     |-- parser.py
@@ -48,21 +58,15 @@ def parse_notes():
     nav_name = 'nav.yml'
     with open(nav_name, 'r') as f:
         navs = yaml.safe_load(f)
-        navs_notes = next(filter(lambda x:list(x.keys()) == ['Courses'], navs['nav']))
-        navs_notes['Courses'].extend(['notes/' + _ + '.md' for _ in subject_list])
-        navs_notes['Courses'] = sorted(set(navs_notes['Courses']))
-        subject_list = [_[6:-3] for _ in navs_notes['Courses']]
+    navs_notes = next(filter(lambda x:list(x.keys()) == ['Courses'], navs['nav']))
+    navs_notes['Courses'].extend(['notes/' + _ + '.md' for _ in subject_list])
+    navs_notes['Courses'] = sorted(set(navs_notes['Courses']))
+    subject_list = [_.removeprefix('notes/').removesuffix('.md') for _ in navs_notes['Courses']]
     with open(nav_name, 'w') as f:
         yaml.dump(navs, f)
 
     # Update mkdocs
-    mkdocs_name = 'mkdocs.yml'
-    config_name = 'config.yml'
-    with open(mkdocs_name, 'w') as fo:
-        with open(config_name, 'r') as fi:
-            fo.write(fi.read())
-        with open(nav_name, 'r') as fi:
-            fo.write(fi.read())
+    update_mkdocs()
 
     subjects_csv_name = 'raw/subjects.csv'
     subjects_csv = pd.read_csv(subjects_csv_name, header='infer', index_col='abbr')
@@ -74,7 +78,7 @@ def parse_notes():
         with open(dest_name, 'w') as fo:
             subject_entry = subjects_csv.loc[subject.upper()]
             fo.write(f'# {subject.upper()} - {subject_entry[("name")]}\n\n')
-            rem_name = f'raw/subjects/{subject}-rem.md'
+            rem_name = f'raw/subjects/{subject}.md'
             if os.path.exists(rem_name):
                 with open(rem_name, 'r') as fi:
                     fo.write(fi.read())
@@ -107,13 +111,38 @@ def parse_notes():
             f.write(records_this_code.to_markdown(index=False))
             f.write('\n\n')
             # Write review
-            rem_name = f'raw/codes/{code}-rem.md'
+            rem_name = f'raw/codes/{code}.md'
             if os.path.exists(rem_name):
                 with open(rem_name, 'r') as fi:
                     f.write('### Review\n\n')
                     f.write(fi.read())
                     f.write('\n')
         
+def parse_others():
+    title_path_list = [('Exchange and Credit Transfer', 'docs/ex/'),
+                       ('Research', 'docs/res/')]
 
+    # Update nav
+    nav_name = 'nav.yml'
+    with open(nav_name, 'r') as f:
+        navs = yaml.safe_load(f)
+
+    for title, path in title_path_list:
+        navs_title = next(filter(lambda x:list(x.keys()) == [title], navs['nav']))
+        navs_title[title] = []
+        for child_dir in os.listdir(path):
+            child_path = os.path.join(path, child_dir)
+            if not os.path.isfile(child_path): continue
+            ext = os.path.splitext(child_path)[1]
+            if ext != '.md': continue
+            navs_title[title].append(child_path.removeprefix('docs/'))
+        navs_title[title] = sorted(set(navs_title[title]))
+    with open(nav_name, 'w') as f:
+        yaml.dump(navs, f)
+
+    # Update mkdocs
+    update_mkdocs()
+                    
 if __name__=='__main__':
     parse_notes()
+    parse_others()

@@ -6,5 +6,8 @@ nav:
   - notes/math.md
 - CurriculumMap:
   - map/index.md
-- Exchange:
+- Exchange and Credit Transfer:
+  - ex/epfl.md
   - ex/index.md
+- Research:
+  - res/urop.md

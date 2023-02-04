@@ -39,11 +39,16 @@
    branch ... start a pull request ..."**, fill in the blank above the brief of
    your editting (e.g., which courses you add notes for), and finally choose "Propose changes".
 
-### Review/Remark
+### Course advise, exchange experience, research and others
 
-Review of some course: edit `raw/codes/<course-code>-rem.md`.
+For course related advice, add/edit files in `raw`:
 
-Review of some subject: edit `raw/subjects/<subjetc>-rem.md`.
+- Advise on some course: add/edit `raw/codes/<course-code>.md`.
+- Review of some subject: add/edit `raw/subjects/<subjetc>.md`.
+
+For other advice, add/edit files in `docs/`:
+- Exchange experience: add/edit `docs/ex/<school-abbr>.md`
+- Research: add/edit `docs/res/<title>.md`
 
 ### To preview locally:
 
