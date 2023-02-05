@@ -1,5 +1,14 @@
 [
   {
+    "code": "comp3711",
+    "title": "MEGA Cloud",
+    "link": "https://mega.nz/folder/kFBEXSzR#WvMhSagFIPWpOy8YbBDGpQ",
+    "offering": "21-22Spring",
+    "format": "PDF",
+    "author": "",
+    "remark": "partial"
+  },
+  {
     "code": "comp4471",
     "title": "Notion",
     "link": "https://www.notion.so/zory233/COMP4471-Deep-Learning-in-Computer-Vision-594bafa8b4c64ddb9982129dcfbd1ebc",
@@ -16,14 +25,5 @@
     "format": "PDF",
     "author": "",
     "remark": ""
-  },
-  {
-    "code": "comp3711",
-    "title": "MEGA Cloud",
-    "link": "https://mega.nz/folder/kFBEXSzR#WvMhSagFIPWpOy8YbBDGpQ",
-    "offering": "21-22Spring",
-    "format": "PDF",
-    "author": "",
-    "remark": "partial"
   }
 ]

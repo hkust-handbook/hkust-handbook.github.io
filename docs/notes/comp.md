@@ -4,6 +4,16 @@ COMP UG Course Offerings: [CSE web page](https://cse.hkust.edu.hk/ug/courses/)
 
 COMP PG Course Offerings: [CSE web page](https://cse.hkust.edu.hk/pg/courses/)
 
+## COMP3711
+
+Course Name: Design and Analysis of Algorithms
+
+### Notes
+
+| link                                                                 | offering    | format   | author   | remark   |
+|:---------------------------------------------------------------------|:------------|:---------|:---------|:---------|
+| [MEGA Cloud](https://mega.nz/folder/kFBEXSzR#WvMhSagFIPWpOy8YbBDGpQ) | 21-22Spring | PDF      |          | partial  |
+
 ## COMP4471
 
 Course Name: Deep Learning in Computer Vision
