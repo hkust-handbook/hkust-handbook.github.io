@@ -11,5 +11,5 @@ that it is an experimental version and is still under development. It
 is hosted [**here**](http://zzhangfc.student.ust.hk/curriculummap/). You can
 also preview it here:
 
-<iframe src="https://zzhangfc.student.ust.hk/curriculummap/" width=100%,
-height=700, scrolling="yes">
+<embed src="https://zzhangfc.student.ust.hk/curriculummap/" width=100%,
+height=700>
