@@ -67,17 +67,3 @@ markdown_extensions:
 
 hooks:
   - parser.py
-nav:
-- Home: index.md
-- Courses:
-  - notes/index.md
-  - notes/comp.md
-  - notes/econ.md
-- CurriculumMap:
-  - map/index.md
-- Major:
-  - major/index.md
-- Exchange and Credit Transfer:
-  - ex/index.md
-- Research:
-  - res/urop.md

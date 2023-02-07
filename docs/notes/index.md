@@ -4,8 +4,8 @@ Choose a subject on the left to view courses in it.
 
 ## Enrollment
 
-1. You cannot add a class that has a time conflict with some class you **have
-   sucessfully** enrolled in. However, you can do this if the class only conflicts
+1. You cannot add a class that has a time conflict with some class you have
+   sucessfully enrolled in. However, you can do this if the class only conflicts
    with some class for which you are on the waitlist. This may cause
    unwanted result. 
     - E.g., you prefer course A over B and they conflict. You first added A and
