@@ -55,19 +55,13 @@ def parse_notes():
     records.drop(['title'], axis='columns', inplace=True)
 
     # Update nav
-    nav_name = 'nav.yml'
     course_index_name = 'notes/index.md'
-    with open(nav_name, 'r') as f:
-        navs = yaml.safe_load(f)
-    navs_notes = next(filter(lambda x:list(x.keys()) == ['Courses'], navs['nav']))
-    navs_notes['Courses'].extend(['notes/' + _ + '.md' for _ in subject_list])
-    navs_notes['Courses'].remove(course_index_name)
-    navs_notes['Courses'] = [course_index_name] + sorted(set(navs_notes['Courses']))
-    with open(nav_name, 'w') as f:
-        yaml.dump(navs, f)
-
-    # Update mkdocs
-    update_mkdocs()
+    nav = load_nav()
+    nav_notes = next(filter(lambda x:list(x.keys()) == ['Courses'], nav['nav']))
+    nav_notes['Courses'].extend(['notes/' + _ + '.md' for _ in subject_list])
+    nav_notes['Courses'].remove(course_index_name)
+    nav_notes['Courses'] = [course_index_name] + sorted(set(nav_notes['Courses']))
+    dump_nav(nav)
 
     subjects_csv_name = 'raw/subjects.csv'
     subjects_csv = pd.read_csv(subjects_csv_name, header='infer', index_col='abbr')
@@ -124,30 +118,38 @@ def parse_others():
                        ('Research', 'docs/res/')]
 
     # Update nav
-    nav_name = 'nav.yml'
-    with open(nav_name, 'r') as f:
-        navs = yaml.safe_load(f)
+    nav = load_nav()
 
     for title, path in title_path_list:
-        navs_title = next(filter(lambda x:list(x.keys()) == [title], navs['nav']))
-        navs_title[title] = []
+        nav_title = next(filter(lambda x:list(x.keys()) == [title], nav['nav']))
+        nav_title[title] = []
         for child_dir in os.listdir(path):
             child_path = os.path.join(path, child_dir)
             if not os.path.isfile(child_path): continue
             ext = os.path.splitext(child_path)[1]
             if ext != '.md': continue
-            navs_title[title].append(child_path.removeprefix('docs/'))
-        navs_title[title] = sorted(set(navs_title[title]))
+            nav_title[title].append(child_path.removeprefix('docs/'))
+        nav_title[title] = sorted(set(nav_title[title]))
+    dump_nav(nav)
+
+def load_nav():
+    nav_name = 'nav.yml'
+    with open(nav_name, 'r') as f:
+        nav = yaml.safe_load(f)
+    return nav
+
+def dump_nav(nav):
+    nav_name = 'nav.yml'
     with open(nav_name, 'w') as f:
-        yaml.dump(navs, f)
+        yaml.dump(nav, f)
 
-    # Update mkdocs
-    update_mkdocs()
-
-def on_startup(*args, **kwargs):
-    print('Running hook: parser.py')
-    parse_notes()
-    parse_others()
+def on_config(config, **kwargs):
+    print('Running hook (on_config): parser.py')
+    parse_notes() # update nav
+    parse_others() # update nav
+    nav = load_nav()
+    config.nav = nav['nav']
+    return config
     
 if __name__=='__main__':
-    on_pre_build()
+    on_config()
