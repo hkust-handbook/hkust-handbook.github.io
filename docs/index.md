@@ -4,10 +4,8 @@
 
 ### Notes
 
-1. Edit `raw/notes.json` though [this link](https://github.com/HKUST-Courses/HKUST-Courses.github.io/edit/master/raw/notes.json)
-2. Add new records to `raw/notes.json`:
-    - A single record represents a link to some set of notes. One course may have
-      multiple sets of notes.
+1. Prepare a link to the notes.
+1. Upload the link to the website by editting `raw/notes.json` though [this link](https://github.com/HKUST-Courses/HKUST-Courses.github.io/edit/master/raw/notes.json)
     - `raw/notes.json` looks like
 ```json
 [
@@ -20,8 +18,10 @@
     }
 ]
 ```
-    Note the comma after each record except the last one. You can insert the new
+    A single course can have multiple records, each corresponding to one
+    hyperlink to notes. Note the comma after each record except the last one. You can insert the new
       records into any position.
+
     - The record format should exactly match the template below:
 ```json
 {
@@ -47,12 +47,13 @@ For course related advice, add/edit files in `raw`:
 - Review of some subject: add/edit `raw/subjects/<subjetc>.md`.
 
 For other advice, add/edit files in `docs/`:
+
 - Exchange experience: add/edit `docs/ex/<school-abbr>.md`
 - Research: add/edit `docs/res/<title>.md`
 
 No need to manually update `mkdocs.yml`.
 
-### To preview locally
+## To preview locally
 
 1. Clone this repo.
 ```shell
