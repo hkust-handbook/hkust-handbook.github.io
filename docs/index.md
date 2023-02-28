@@ -58,7 +58,7 @@ No need to manually update `mkdocs.yml`.
 1. Clone this repo.
 ```shell
 git clone git@github.com:HKUST-Courses/HKUST-Courses.github.io.git
-cd HKUST-Courses.github.io.
+cd HKUST-Courses.github.io
 ```
 2. Install required Python packages.
 ```shell
