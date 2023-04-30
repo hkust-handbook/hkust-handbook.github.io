@@ -1,5 +1,11 @@
 # Facilities
 
+## Online Food Ordering
+
+[CSO Online Food Ordering](https://cso.ust.hk/cat/onine_order):
+
+- Can check the menus in advance!
+
 ## Estimated people counting
 
 [Pulse of HKUST](http://pulse-api.hkustvis.org)
@@ -7,12 +13,12 @@
 
 ## Canvas
 
-- The scaling of embedded RVC in Canvas Pages is too annoying? 
+- The scaling of embedded RVC in Canvas Pages is too annoying?
 
     Open it using the direct link: Too extract the direct link, use your browser's
     inspect ultility.
 
-- Want to know when the lecture slides will be uploaded / updated? 
+- Want to know when the lecture slides will be uploaded / updated?
 
     Change the notification settings: Account -> Notifications -> Course
     Activities -> Files. Configure the email / push notification settings.
