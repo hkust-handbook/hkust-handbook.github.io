@@ -2,56 +2,37 @@
 
 ## Contributing
 
+If you create new files, please update `nav.yml` accordingly.
+
 ### Notes
 
 1. Prepare a link to the notes.
-1. Upload the link to the website by editting `raw/notes.json` though [this link](https://github.com/HKUST-Courses/HKUST-Courses.github.io/edit/master/raw/notes.json)
-    - `raw/notes.json` looks like
-```json
-[
-    { 
-        record 1
-    },
-    ...
-    { 
-        record n
-    }
-]
-```
-    A single course can have multiple records, each corresponding to one
-    hyperlink to notes. Note the comma after each record except the last one. You can insert the new
-      records into any position.
+2. Find the markdown file for the corresponding subject in `docs/notes/`. E.g.,
+   `comp.md` is for Computer Science courses. You may create a new markdown file
+   if there has not been one for the subject.
+3. In the file, please follow this format:
+   ```markdown
+   # <subject abbreviation> - <subject full name>
 
-    - The record format should exactly match the template below:
-```json
-{
-    "code": "comp1021",
-    "title": "Text displayed on the link",
-    "link": "https://...",
-    "offering": "22-23Fall",
-    "format": "PDF", 
-    "author": "Your name, optional.",
-    "remark": "Optional"
-}
-```
-      Note: All field values must be surronded by a double quotation mark.
-3. After finishing your editting, scroll to the bottom, **select "Create a new
-   branch ... start a pull request ..."**, fill in the blank above the brief of
-   your editting (e.g., which courses you add notes for), and finally choose "Propose changes".
+   ## <course code>
 
-### Course advise, exchange experience, research and others
+   Course Name: <course full name>
 
-For course related advice, add/edit files in `raw`:
+   ### Notes
 
-- Advise on some course: add/edit `raw/codes/<course-code>.md`.
-- Review of some subject: add/edit `raw/subjects/<subjetc>.md`.
+   | link | offering | format | author | remark |
+   | :-: | :- | :- | :- | :- |
+   | <link> | <offering> | <format> | <author> | <remark> |
+
+   ### Review / Comment / Suggestions
+   ```
+
+### Advise, exchange experience, research and others
 
 For other advice, add/edit files in `docs/`:
 
 - Exchange experience: add/edit `docs/ex/<school-abbr>.md`
 - Research: add/edit `docs/res/<title>.md`
-
-No need to manually update `mkdocs.yml`.
 
 ## To preview locally
 

@@ -31,7 +31,7 @@ def parse_notes():
     file_name = 'raw/notes.json'
     backup_name = 'raw/notes-backup.json'
     shutil.copy(file_name, backup_name)
-    
+
     records = pd.read_json(file_name, orient='records', dtype=False)
 
     # Normalize course code
@@ -42,14 +42,14 @@ def parse_notes():
     records['code'] = records['code'].apply(normalize_code)
     code_list = sorted(set(records['code'].tolist()))
     subject_list = sorted(set([code[:4] for code in code_list]))
-    
+
     # Sort by course code and offering
     records.sort_values(by=['code', 'offering'], inplace=True, ignore_index=True)
 
     # Overwrite the original file (Modifications above do not break the format)
     with open(file_name, 'w') as f:
         json.dump(json.loads(records.to_json(orient='records')), f, indent=2)
-        
+
     # Synthesize hyperlink
     records['link'] = '[' + records['title'] + '](' + records['link'] + ')'
     records.drop(['title'], axis='columns', inplace=True)
@@ -82,7 +82,7 @@ def parse_notes():
     # Load courses.csv for course information
     courses_csv_name = 'raw/courses.csv'
     courses_info = pd.read_csv(courses_csv_name, header='infer', index_col='Course Code')
-    
+
     # Fill in <subject>.md files
     for code in code_list:
         subject = code[:4]
@@ -112,7 +112,7 @@ def parse_notes():
                     f.write('### Review\n\n')
                     f.write(fi.read())
                     f.write('\n')
-        
+
 def parse_others():
     title_path_list = [('Exchange and Credit Transfer', 'docs/ex/'),
                        ('Research', 'docs/res/')]
@@ -145,11 +145,11 @@ def dump_nav(nav):
 
 def on_config(config, **kwargs):
     print('Running hook (on_config): parser.py')
-    parse_notes() # update nav
-    parse_others() # update nav
+    # parse_notes() # update nav
+    # parse_others() # update nav
     nav = load_nav()
     config.nav = nav['nav']
     return config
-    
+
 if __name__=='__main__':
     on_config()

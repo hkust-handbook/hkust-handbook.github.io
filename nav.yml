@@ -2,6 +2,7 @@ nav:
 - Home: index.md
 - Courses:
   - notes/index.md
+  - notes/enroll.md
   - notes/comp.md
   - notes/econ.md
   - notes/math.md
