@@ -34,7 +34,7 @@ Course Name: Introduction to Combinatorial Optimization
 
 | link | offering | format | author | remark |
 | :-: | :- | :- | :- | :- |
-| [Homepage](http://ywangmy.student.ust.hk/notes/comp5712.pdf) | 22-23Spring | PDF |  |  |
+| [Homepage](https://ywangmy.student.ust.hk/notes/comp5712.pdf) | 22-23Spring | PDF |  |  |
 
 ### Review
 
