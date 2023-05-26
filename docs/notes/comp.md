@@ -4,19 +4,65 @@ COMP UG Course Offerings: [CSE web page](https://cse.hkust.edu.hk/ug/courses/)
 
 COMP PG Course Offerings: [CSE web page](https://cse.hkust.edu.hk/pg/courses/)
 
-## COMP3711
-
-Course Name: Design and Analysis of Algorithms
+## COMP2011 - Programming with C++ (C++编程)
 
 ### Notes
 
-| link                                                                 | offering    | format   | author   | remark   |
-|:---------------------------------------------------------------------|:------------|:---------|:---------|:---------|
+| Link | Offering | Format | Author | Remark |
+| ---- | -------- | ------ | ------ | ------ |
+| [Google Drive](https://drive.google.com/drive/folders/1APRGtCCyVxGPBw9NwVTPKxEOYoMSkTZ6?usp=sharing) | - | - | - | - |
+
+## COMP2012H - Honors Object-Oriented Programming and Data Structures (荣誉面向对象的编程和数据结构)
+
+### Notes
+
+| Link | Offering | Format | Author | Remark |
+| ---- | -------- | ------ | ------ | ------ |
+| [Google Drive](https://drive.google.com/drive/folders/1flBl2CAkd6j0-SYNQkpyJJQ_Jdl-peg6?usp=sharing) | - | - | - | - |
+
+## COMP 2211 - Exploring Artificial Intelligence (探索人工智能)
+
+### Notes
+
+| Link | Offering | Format | Author | Remark |
+| ---- | -------- | ------ | ------ | ------ |
+| [Google Drive](https://drive.google.com/drive/folders/1-pmwUy1SuffAizpHUG76RupNoiGWgu5q?usp=sharing) | - | - | - | - |
+| [Notion](https://zory233.notion.site/COMP2211-Exploring-Artificial-Intelligence-9f3326161dbd425ba5a251a9e8a9803d) | - | - | - | - |
+
+## COMP 2611 - Computer Organization (计算机组成)
+
+### Notes
+
+| Link | Offering | Format | Author | Remark |
+| ---- | -------- | ------ | ------ | ------ |
+| [Google Drive](https://drive.google.com/drive/folders/17MwKVcmyGZdYFElMFC3vwyb-pp1Wl9hW?usp=sharing) | - | - | - | - |
+
+## COMP2711 - Discrete Mathematical Tools for Computer Science (对计算机的离散数学工具)
+
+### Notes
+
+| Link | Offering | Format | Author | Remark |
+| ---- | -------- | ------ | ------ | ------ |
+| [Google Drive](https://drive.google.com/drive/folders/10Zk2hFQL7-vHfrykNJ1ucb6W3NwlT3Cn?usp=sharing) | - | - | - | - |
+
+## COMP2711H - Honors Discrete Mathematical Tools for Computer Science (荣誉对计算机的离散数学工具)
+
+### Notes
+
+| Link | Offering | Format | Author | Remark |
+| ---- | -------- | ------ | ------ | ------ |
+| [Google Drive](https://drive.google.com/drive/folders/1yzY6OrH7zWmWwGUch6px6PmP4bLEOPfb?usp=sharing) | - | - | - | - |
+
+## COMP 3711 - Design and Analysis of Algorithms (算法分析与设计)
+
+### Notes
+
+| Link | Offering | Format | Author | Remark |
+| ---- | -------- | ------ | ------ | ------ |
+| [Google Drive](https://drive.google.com/drive/folders/1g7ks_rQzH8Mkryz07Kj9EWzLQh8G5PLN?usp=sharing) | - | - | - | - |
 | [MEGA Cloud](https://mega.nz/folder/kFBEXSzR#WvMhSagFIPWpOy8YbBDGpQ) | 21-22Spring | PDF      |          | partial  |
 
-## COMP4471
-
-Course Name: Deep Learning in Computer Vision
+## COMP4471 - Deep Learning in Computer Vision
 
 ### Notes
 

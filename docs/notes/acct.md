@@ -1,0 +1,9 @@
+# ACCT - Accounting
+
+## ACCT2010 - Principles of Accounting I (会计学原理1)
+
+### Notes
+
+| Link | Offering | Format | Author | Remark |
+| ---- | -------- | ------ | ------ | ------ |
+| [Google Drive](https://drive.google.com/drive/folders/1jxZnSBDZkId4_o-MxQN523KKuywAYqXr?usp=sharing) | - | - | - | - |

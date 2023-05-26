@@ -3,9 +3,11 @@ nav:
 - Courses:
   - notes/index.md
   - notes/enroll.md
+  - notes/acct.md
   - notes/comp.md
   - notes/econ.md
   - notes/math.md
+  - notes/phys.md
 - CurriculumMap:
   - map/index.md
 - Major:
