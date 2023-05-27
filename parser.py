@@ -26,7 +26,9 @@ def parse_notes():
         |-- courses.csv
     |-- docs
         |-- notes
-            |-- <subject>.md
+            |-- <subject>
+                |-- index.md
+                |-- <course>.md
     """
     file_name = 'raw/notes.json'
     backup_name = 'raw/notes-backup.json'
@@ -55,6 +57,9 @@ def parse_notes():
     records.drop(['title'], axis='columns', inplace=True)
 
     # Update nav
+
+
+
     course_index_name = 'notes/index.md'
     nav = load_nav()
     nav_notes = next(filter(lambda x:list(x.keys()) == ['Courses'], nav['nav']))
@@ -132,6 +137,64 @@ def parse_others():
         nav_title[title] = sorted(set(nav_title[title]))
     dump_nav(nav)
 
+def get_subject_fullname(subject_csv, subject_abbr):
+    return subject_csv.loc[subject_abbr.upper()][("name")]
+
+def get_course_info(course_csv, course_code):
+    course_fullname = course_csv.loc[course_code, ("Course Name")]
+    return course_fullname
+    # if not courses_info.loc[code, ('Previous Course Code(s)')]:
+    #     f.write(f'Previous Course Code(s): {courses_info.loc[code, ("Previous Course Code(s)")]}\n\n')
+    # if not courses_info.loc[code, ('Alternate code(s)')]:
+    #     f.write(f'Alternate code(s): {courses_info.loc[code, ("Alternate code(s)")]}\n')
+
+def update_notes_nav():
+    notes_root = 'docs/notes/'
+
+    subject_csv_filename = 'raw/subjects.csv'
+    subject_csv = pd.read_csv(subject_csv_filename, header='infer', index_col='abbr')
+
+    course_csv_name = 'raw/courses.csv'
+    course_csv = pd.read_csv(course_csv_name, header='infer', index_col='Course Code')
+
+    notes_nav = []
+    for nowdir, subdirs, files in os.walk(notes_root):
+        docdir = nowdir.removeprefix('docs/') # root used in nav.yml
+        md_files = [f for f in files if f.endswith(".md")]
+        md_files = sorted(md_files)
+
+        print(nowdir, subdirs, md_files)
+        print()
+        if nowdir == notes_root:
+            notes_nav.append(os.path.join(docdir, 'index.md'))
+            notes_nav.append({f'Enrollment': os.path.join(docdir, 'enroll.md')})
+        else:
+            subject_abbr = nowdir.removeprefix(notes_root)
+            subject_abbr_upper = subject_abbr.upper()
+            subject_fullname = get_subject_fullname(subject_csv, subject_abbr)
+            print('subject', subject_abbr, subject_abbr_upper, subject_fullname)
+
+            local_nav = []
+
+            if 'index.md' in md_files:
+                local_nav.append(os.path.join(docdir, 'index.md'))
+            for file in md_files:
+                fullpath = os.path.join(docdir, file)
+                if file == 'index.md':
+                    continue
+                else:
+                    course_code = file.removesuffix('.md')
+                    course_code_upper = course_code.upper()
+                    course_fullname = get_course_info(course_csv, course_code)
+                    local_nav.append({f'{course_code_upper} - {course_fullname}': fullpath})
+
+            print(local_nav)
+            # Write table of notes
+
+            notes_nav.append({f'{subject_abbr_upper} - {subject_fullname}': local_nav})
+
+    return notes_nav
+
 def load_nav():
     nav_name = 'nav.yml'
     with open(nav_name, 'r') as f:
@@ -147,7 +210,15 @@ def on_config(config, **kwargs):
     print('Running hook (on_config): parser.py')
     # parse_notes() # update nav
     # parse_others() # update nav
+    notes_nav = update_notes_nav()
+    print('=' * 10)
+    print(notes_nav)
     nav = load_nav()
+    nav_notes = next(filter(lambda x:list(x.keys()) == ['Courses'], nav['nav']))
+    nav_notes['Courses'] = notes_nav
+    print('=' * 10)
+    print(nav)
+    dump_nav(nav)
     config.nav = nav['nav']
     return config
 
