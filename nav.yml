@@ -3,9 +3,9 @@ nav:
 - Courses:
   - notes/index.md
   - Enrollment: notes/enroll.md
-  - ECON -  Economics:
-    - notes/econ/index.md
-    - ECON2103 - Principles of Microeconomics: notes/econ/econ2103.md
+  - ACCT -  Accounting:
+    - notes/acct/index.md
+    - ACCT2010 - Principles of Accounting I: notes/acct/acct2010.md
   - COMP -  Computer Science and Engineering:
     - notes/comp/index.md
     - COMP2011 - Programming with C++: notes/comp/comp2011.md
@@ -36,6 +36,9 @@ nav:
   - PHYS -  Physics:
     - notes/phys/index.md
     - PHYS3032 - Classical Mechanics: notes/phys/phys3032.md
+  - ECON -  Economics:
+    - notes/econ/index.md
+    - ECON2103 - Principles of Microeconomics: notes/econ/econ2103.md
 - CurriculumMap:
   - map/index.md
 - Major:
