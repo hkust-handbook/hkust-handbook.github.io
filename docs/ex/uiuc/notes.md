@@ -2,12 +2,6 @@
 
 ## Before Depature
 
-!!! note
-
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod
-    nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor
-    massa, nec semper lorem quam in massa.
-
 24 Spring 仅供参考：
   
 - 23/7/20: *Application Activity HKUST MyStudyAbroad application system*
