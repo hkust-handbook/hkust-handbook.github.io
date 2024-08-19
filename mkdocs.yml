@@ -64,6 +64,64 @@ markdown_extensions:
   - pymdownx.snippets
   # Support nesting fence code blocks under lists
   - pymdownx.superfences
+  # https://squidfunk.github.io/mkdocs-material/reference/admonitions/
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
 
 # hooks:
 #   - parser.py
+
+nav:
+- Home: index.md
+- Courses:
+  - notes/index.md
+  - Enrollment: notes/enroll.md
+  - PHYS -  Physics:
+    - notes/phys/index.md
+    - PHYS3032 - Classical Mechanics: notes/phys/phys3032.md
+  - ACCT -  Accounting:
+    - notes/acct/index.md
+    - ACCT2010 - Principles of Accounting I: notes/acct/acct2010.md
+  - ECON -  Economics:
+    - notes/econ/index.md
+    - ECON2103 - Principles of Microeconomics: notes/econ/econ2103.md
+  - COMP -  Computer Science and Engineering:
+    - notes/comp/index.md
+    - COMP2011 - Programming with C++: notes/comp/comp2011.md
+    - COMP2012H - Honors Object-Oriented Programming and Data Structures: notes/comp/comp2012h.md
+    - COMP2211 - Exploring Artificial Intelligence: notes/comp/comp2211.md
+    - COMP2611 - Computer Organization: notes/comp/comp2611.md
+    - COMP2711 - Discrete Mathematical Tools for Computer Science: notes/comp/comp2711.md
+    - COMP2711H - Honors Discrete Mathematical Tools for Computer Science: notes/comp/comp2711h.md
+    - COMP3711 - Design and Analysis of Algorithms: notes/comp/comp3711.md
+    - COMP4471 - Deep Learning in Computer Vision: notes/comp/comp4471.md
+    - COMP5712 - Introduction to Combinatorial Optimization: notes/comp/comp5712.md
+  - MATH -  Mathematics:
+    - notes/math/index.md
+    - MATH1023 - Honors Calculus I: notes/math/math1023.md
+    - MATH1024 - Honors Calculus II: notes/math/math1024.md
+    - MATH2023 - Multivariable Calculus: notes/math/math2023.md
+    - MATH2043 - Honors Mathematical Analysis: notes/math/math2043.md
+    - MATH2131 - Honors in Linear and Abstract Algebra I: notes/math/math2131.md
+    - MATH2411 - Applied Statistics: notes/math/math2411.md
+    - MATH2431 - Honors Probability: notes/math/math2431.md
+    - MATH2511 - Fundamentals of Actuarial Mathematics: notes/math/math2511.md
+    - MATH3043 - Honors Real Analysis: notes/math/math3043.md
+    - MATH3322 - Matrix Computation: notes/math/math3322.md
+    - MATH3332 - Data Analytic Tools: notes/math/math3332.md
+    - MATH3423 - Statistical Inference: notes/math/math3423.md
+    - MATH4432 - Statistical Machine Learning: notes/math/math4432.md
+    - MATH5311 - Advanced Numerical Methods I: notes/math/math5311.md
+- CurriculumMap:
+  - map/index.md
+- Major:
+  - major/index.md
+- Exchange and Credit Transfer:
+  - ex/index.md
+  - UIUC: ex/uiuc/notes.md
+- Research:
+  - res/res-cour.md
+  - res/urop.md
+- Facilities:
+  - facil/index.md
