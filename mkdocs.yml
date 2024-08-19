@@ -65,5 +65,5 @@ markdown_extensions:
   # Support nesting fence code blocks under lists
   - pymdownx.superfences
 
-hooks:
-  - parser.py
+# hooks:
+#   - parser.py
