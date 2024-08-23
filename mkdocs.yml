@@ -1,8 +1,8 @@
 # https://www.mkdocs.org/user-guide/configuration/
-site_url: https://HKUST-Courses.github.io/
-site_name: HKUST Course Information
-site_description: HKUST Course Information (Unofficial)
-repo_url: https://github.com/HKUST-Courses/HKUST-Courses.github.io
+site_url: https://https://hkust-handbook.github.io
+site_name: HKUST Handbook (Unofficial)
+site_description: HKUST Handbook (Unofficial)
+repo_url: https://github.com/hkust-handbook/hkust-handbook.github.io
 
 theme:
   name: material
